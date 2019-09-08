@@ -1,0 +1,3 @@
+rootProject.name = 'gtuner'
+
+include ':app'
