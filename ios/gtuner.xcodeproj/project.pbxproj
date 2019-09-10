@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -40,6 +39,9 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		6145FF3867BD484192FB54AA /* libMicrophoneStream.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D415C3161A1B4723BB2B3B5E /* libMicrophoneStream.a */; };
+		0ABBD215FCB04E749E1EDBF5 /* libRecording.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E6B5073420411A980ACBC0 /* libRecording.a */; };
+		0E512BADBE8243AC9B82A52D /* libRNAudioRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A93A39D19941FD9B5A686F /* libRNAudioRecord.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -347,6 +349,12 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		25A8C878DF084586ABD2C73B /* MicrophoneStream.xcodeproj */ = {isa = PBXFileReference; name = "MicrophoneStream.xcodeproj"; path = "../node_modules/react-native-microphone-stream/ios/MicrophoneStream.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		D415C3161A1B4723BB2B3B5E /* libMicrophoneStream.a */ = {isa = PBXFileReference; name = "libMicrophoneStream.a"; path = "libMicrophoneStream.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		7A86C2FAFE7046E39FADD49E /* Recording.xcodeproj */ = {isa = PBXFileReference; name = "Recording.xcodeproj"; path = "../node_modules/react-native-recording/lib/ios/Recording.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		90E6B5073420411A980ACBC0 /* libRecording.a */ = {isa = PBXFileReference; name = "libRecording.a"; path = "libRecording.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		944EB652994940D695F163C7 /* RNAudioRecord.xcodeproj */ = {isa = PBXFileReference; name = "RNAudioRecord.xcodeproj"; path = "../node_modules/react-native-audio-record/ios/RNAudioRecord.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		21A93A39D19941FD9B5A686F /* libRNAudioRecord.a */ = {isa = PBXFileReference; name = "libRNAudioRecord.a"; path = "libRNAudioRecord.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +383,9 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				6145FF3867BD484192FB54AA /* libMicrophoneStream.a in Frameworks */,
+				0ABBD215FCB04E749E1EDBF5 /* libRecording.a in Frameworks */,
+				0E512BADBE8243AC9B82A52D /* libRNAudioRecord.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +575,9 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				25A8C878DF084586ABD2C73B /* MicrophoneStream.xcodeproj */,
+				7A86C2FAFE7046E39FADD49E /* Recording.xcodeproj */,
+				944EB652994940D695F163C7 /* RNAudioRecord.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -692,7 +706,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -1189,6 +1203,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gtuner.app/gtuner";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1207,6 +1233,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gtuner.app/gtuner";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};
@@ -1226,6 +1264,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = gtuner;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1244,6 +1288,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = gtuner;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};
@@ -1270,6 +1320,18 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1296,6 +1358,18 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};
@@ -1321,6 +1395,18 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gtuner-tvOS.app/gtuner-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Debug;
 		};
@@ -1346,6 +1432,18 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gtuner-tvOS.app/gtuner-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
+					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
+					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+				);
 			};
 			name = Release;
 		};
