@@ -8,8 +8,10 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import Recording from 'react-native-recording'
 import {PermissionsAndroid} from 'react-native';
+import Tuner from './modules/tuner';
+import Recording from 'react-native-recording';
+import EventEmitter from "react-native-eventemitter";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -23,7 +25,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.welcome}>to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>
@@ -31,21 +33,17 @@ export default class App extends Component<Props> {
   }
 
   componentDidMount() {
+    console.log('test__');
     requestMicPermission()
         .then( data => console.log(data) )
         .catch( err => console.log(err) );
-    console.log('test4');
 
-    Recording.init({
-      bufferSize: 4096,
-      sampleRate: 44100,
-      bitsPerChannel: 16,
-      channelsPerFrame: 1,
-    });
-    Recording.addRecordingEventListener(data => console.log(data))
-    Recording.start();
-    Recording.stop();
-
+    console.log('tuner2: ', Tuner);
+    const tuner = new Tuner();
+    tuner.init().start();
+    // EventEmitter.on("foo", (value)=>{
+    //   console.log("foo", value);
+    // });
   }
 }
 
