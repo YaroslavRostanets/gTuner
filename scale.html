@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="screen" style="height: 736px; width: 414px; border: 1px solid gray; padding-top: 30px;">
+        <div class="scale">
+            <div class="app-name">
+                Y-Tuner
+            </div>
+            <canvas id="canvas" width="414" height="270"></canvas>
+        </div>
+        <div class="bar">
+
+        </div>
+    </div>
+</body>
+<script>
+    const getDecCords  = (r, angle) => {
+        const getRad = (deg) => {
+            return (deg * Math.PI) / 180
+        };
+
+        console.log('rad: ', getRad(angle));
+
+        const x = r * Math.cos(getRad(angle));
+        const y = r * Math.sin(getRad(angle));
+
+        console.log('x: ', x);
+
+        return {
+            x: x + 207,
+            y: y + 250
+        }
+    };
+
+
+
+    var canvas=document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    ctx.lineWidth = 2; // толщина линии
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#D7D6D9';
+
+    ctx.arc(207,250,190,0, Math.PI,true);
+
+    ctx.stroke();
+
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'red';
+
+    ctx.beginPath();
+    ctx.moveTo(207, 250);
+    const {x, y} = getDecCords(190, 10);
+    ctx.lineTo(x, y);
+    for (let i = 180; i <= 360; i = i + 4.5) {
+        const {x, y} = getDecCords(190, i);
+        const innerMarks = getDecCords(185, i);
+
+        ctx.beginPath();
+        ctx.moveTo(innerMarks.x, innerMarks.y);
+        console.log(x, y);
+        ctx.lineTo(x, y);
+
+        ctx.stroke();
+    }
+</script>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #313047;
+    }
+    .scale {
+        height: 70%;
+        background: linear-gradient(to top, #FEFEFE, #E7E7E7);
+    }
+    .bar {
+        background: #2B293B;
+        height: 30%;
+    }
+    .app-name {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        padding-top: 15px;
+    }
+</style>
+</html>
