@@ -11,7 +11,7 @@
             <div class="app-name">
                 Y-Tuner
             </div>
-            <canvas id="canvas" width="414" height="270"></canvas>
+            <canvas id="canvas" width="414" height="570"></canvas>
         </div>
         <div class="bar">
 
@@ -19,6 +19,10 @@
     </div>
 </body>
 <script>
+    const getRad = (deg) => {
+        return (deg * Math.PI) / 180
+    };
+
     const getDecCords  = (r, angle) => {
         const getRad = (deg) => {
             return (deg * Math.PI) / 180
@@ -52,15 +56,22 @@
 
 
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'red';
+    ctx.strokeStyle = '#777580';
 
     ctx.beginPath();
     ctx.moveTo(207, 250);
     const {x, y} = getDecCords(190, 10);
     ctx.lineTo(x, y);
-    for (let i = 180; i <= 360; i = i + 4.5) {
-        const {x, y} = getDecCords(190, i);
-        const innerMarks = getDecCords(185, i);
+    for (let i = 180, j = 0; i <= 360; i = i + 4.5, j++) {
+        console.log('j: ', j);
+        const {x, y} = getDecCords(185, i);
+        let innerMarks;
+        if ( !(j % 10) ) {
+            innerMarks = getDecCords(165, i);
+            ctx.strokeText("20", innerMarks.x - 5, innerMarks.y + 15);
+        } else {
+            innerMarks = getDecCords(176, i);
+        }
 
         ctx.beginPath();
         ctx.moveTo(innerMarks.x, innerMarks.y);
@@ -69,6 +80,30 @@
 
         ctx.stroke();
     }
+
+    ctx.beginPath();
+    ctx.arc(207, 340, 130, getRad(255), getRad(285), false);
+    ctx.strokeStyle = '#C5C5C8';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowColor = '#C5C5C8';
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(207, 210, 4, 0, 2*Math.PI, false);
+    ctx.fillStyle = '#F53E3C';
+    ctx.strokeStyle = '#F53E3C';
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(207, 210, 8, 0, 2*Math.PI, false);
+    ctx.fillStyle = 'rgba(245, 62, 60, 0.25)';
+    ctx.strokeStyle = 'rgba(245, 62, 60, 0.25)';
+    ctx.fill();
+    ctx.stroke();
+
+
 </script>
 <style>
     body {
