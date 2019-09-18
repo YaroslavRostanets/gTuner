@@ -42,6 +42,8 @@
 		6145FF3867BD484192FB54AA /* libMicrophoneStream.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D415C3161A1B4723BB2B3B5E /* libMicrophoneStream.a */; };
 		0ABBD215FCB04E749E1EDBF5 /* libRecording.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E6B5073420411A980ACBC0 /* libRecording.a */; };
 		0E512BADBE8243AC9B82A52D /* libRNAudioRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A93A39D19941FD9B5A686F /* libRNAudioRecord.a */; };
+		EE832681362C43689A077410 /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 371B970CD442464299A08B48 /* libRNCWebView.a */; };
+		55F3ECDAF0D44B47878F6904 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70078B70CC6844F5A630E468 /* libBVLinearGradient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,6 +357,10 @@
 		90E6B5073420411A980ACBC0 /* libRecording.a */ = {isa = PBXFileReference; name = "libRecording.a"; path = "libRecording.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		944EB652994940D695F163C7 /* RNAudioRecord.xcodeproj */ = {isa = PBXFileReference; name = "RNAudioRecord.xcodeproj"; path = "../node_modules/react-native-audio-record/ios/RNAudioRecord.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		21A93A39D19941FD9B5A686F /* libRNAudioRecord.a */ = {isa = PBXFileReference; name = "libRNAudioRecord.a"; path = "libRNAudioRecord.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		93C53A519FBC48E0BDF80B23 /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; name = "RNCWebView.xcodeproj"; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		371B970CD442464299A08B48 /* libRNCWebView.a */ = {isa = PBXFileReference; name = "libRNCWebView.a"; path = "libRNCWebView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		40167FED75E846B182EFF70E /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		70078B70CC6844F5A630E468 /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +392,8 @@
 				6145FF3867BD484192FB54AA /* libMicrophoneStream.a in Frameworks */,
 				0ABBD215FCB04E749E1EDBF5 /* libRecording.a in Frameworks */,
 				0E512BADBE8243AC9B82A52D /* libRNAudioRecord.a in Frameworks */,
+				EE832681362C43689A077410 /* libRNCWebView.a in Frameworks */,
+				55F3ECDAF0D44B47878F6904 /* libBVLinearGradient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +586,8 @@
 				25A8C878DF084586ABD2C73B /* MicrophoneStream.xcodeproj */,
 				7A86C2FAFE7046E39FADD49E /* Recording.xcodeproj */,
 				944EB652994940D695F163C7 /* RNAudioRecord.xcodeproj */,
+				93C53A519FBC48E0BDF80B23 /* RNCWebView.xcodeproj */,
+				40167FED75E846B182EFF70E /* BVLinearGradient.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1208,12 +1218,16 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1238,12 +1252,16 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;
@@ -1269,6 +1287,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1293,6 +1313,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;
@@ -1325,12 +1347,16 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1363,12 +1389,16 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;
@@ -1400,12 +1430,16 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Debug;
@@ -1437,12 +1471,16 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-microphone-stream\ios",
 					"$(SRCROOT)\..\node_modules\react-native-recording\lib\ios",
 					"$(SRCROOT)\..\node_modules\react-native-audio-record\ios",
+					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 				);
 			};
 			name = Release;

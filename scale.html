@@ -82,6 +82,13 @@
     }
 
     ctx.beginPath();
+    ctx.arc(207, 210, 8, 0, 2*Math.PI, false);
+    ctx.fillStyle = 'rgba(245, 62, 60, 0.20)';
+    ctx.strokeStyle = 'rgba(245, 62, 60, 0.20)';
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
     ctx.arc(207, 340, 130, getRad(255), getRad(285), false);
     ctx.strokeStyle = '#C5C5C8';
     ctx.shadowBlur = 5;
@@ -96,12 +103,7 @@
     ctx.fill();
     ctx.stroke();
 
-    ctx.beginPath();
-    ctx.arc(207, 210, 8, 0, 2*Math.PI, false);
-    ctx.fillStyle = 'rgba(245, 62, 60, 0.25)';
-    ctx.strokeStyle = 'rgba(245, 62, 60, 0.25)';
-    ctx.fill();
-    ctx.stroke();
+
 
 
 </script>

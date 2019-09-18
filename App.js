@@ -13,6 +13,8 @@ import Tuner from './modules/tuner';
 import Recording from 'react-native-recording';
 import EventEmitter from "react-native-eventemitter";
 
+import TunerScreen from './screens/tuner';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -25,9 +27,10 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+          <TunerScreen style={styles.scale}/>
+          <View style={styles.bar}>
+              <Text>lll</Text>
+          </View>
       </View>
     );
   }
@@ -40,7 +43,7 @@ export default class App extends Component<Props> {
 
     console.log('tuner2: ', Tuner);
     const tuner = new Tuner();
-    tuner.init().start();
+    //tuner.init().start();
     // EventEmitter.on("foo", (value)=>{
     //   console.log("foo", value);
     // });
@@ -78,8 +81,6 @@ async function requestMicPermission() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
@@ -92,4 +93,12 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+    scale: {
+      height: '71%',
+        backgroundColor: 'blue'
+    },
+  bar: {
+      backgroundColor: '#2B293B',
+      height: '30%'
+    }
 });

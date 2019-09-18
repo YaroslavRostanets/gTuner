@@ -3,6 +3,8 @@ package com.gtuner;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.goodatlas.audiorecord.RNAudioRecordPackage;
 import cn.qiuxiang.react.recording.RecordingPackage;
 import com.github.chadsmith.MicrophoneStream.MicrophoneStreamPackage;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LinearGradientPackage(),
+            new RNCWebViewPackage(),
             new RNAudioRecordPackage(),
             new RecordingPackage(),
             new MicrophoneStreamPackage()
