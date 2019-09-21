@@ -93,9 +93,11 @@ export default class Scale extends Component {
 
     render() {
         return (
-            <Canvas
-                style={styles.canvas}
-                ref={this.handleCanvas}/>
+            <View style={styles.wrap}>
+                <Canvas
+                    style={styles.canvas}
+                    ref={this.handleCanvas}/>
+            </View>
         );
     }
 
@@ -108,4 +110,11 @@ const styles = StyleSheet.create({
         //borderColor: 'red',
         //borderStyle: 'solid',
     },
+    wrap: {
+        height: 0.37 * screenHeight,
+        overflow: 'hidden',
+        //borderWidth: 1,
+        //borderStyle: 'solid',
+
+    }
 });

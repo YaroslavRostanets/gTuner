@@ -13,7 +13,11 @@ import Tuner from './modules/tuner';
 import Recording from 'react-native-recording';
 import EventEmitter from "react-native-eventemitter";
 
+import {TUNER, METRONOM} from "./constants";
 import TunerScreen from './screens/tuner';
+import Metronom from './screens/metronome';
+import Bar from './layout/Bar';
+import SwitchSelector from "react-native-switch-selector";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -24,13 +28,22 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeTab: TUNER
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
-          <TunerScreen style={styles.scale}/>
-          <View style={styles.bar}>
-              <Text>lll</Text>
-          </View>
+        <View style={styles.tabContainer}>
+          {(this.state.activeTab === TUNER)
+            ? <TunerScreen style={styles.scale}/>
+            : <Metronom/>}
+        </View>
+        <Bar/>
       </View>
     );
   }
@@ -38,8 +51,8 @@ export default class App extends Component<Props> {
   componentDidMount() {
     console.log('test__');
     requestMicPermission()
-        .then( data => console.log(data) )
-        .catch( err => console.log(err) );
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
 
     console.log('tuner2: ', Tuner);
     const tuner = new Tuner();
@@ -57,16 +70,16 @@ async function requestMicPermission() {
 
   try {
     const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-        {
-          title: 'GTuner Permission',
-          message:
-              'Cool Photo App needs access to your camera ' +
-              'so you can take awesome pictures.',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
+      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+      {
+        title: 'GTuner Permission',
+        message:
+          'Cool Photo App needs access to your camera ' +
+          'so you can take awesome pictures.',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
       console.log('You can use mic');
@@ -82,6 +95,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
+
+  },
+  tabContainer: {
+    height: '85%',
   },
   welcome: {
     fontSize: 20,
@@ -93,12 +110,5 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-    scale: {
-      height: '71%',
-        backgroundColor: 'blue'
-    },
-  bar: {
-      backgroundColor: '#2B293B',
-      height: '30%'
-    }
+
 });
