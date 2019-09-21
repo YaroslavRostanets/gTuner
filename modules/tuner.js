@@ -2,7 +2,7 @@ import Recording from 'react-native-recording';
 import PitchFinder from "pitchfinder";
 import EventEmitter from "react-native-eventemitter";
 
-export default class Tuner {
+class Tuner {
 
     noteStrings = [
         "C",
@@ -19,7 +19,7 @@ export default class Tuner {
         "B"
     ];
 
-    constructor (bufferSize = 4096, sampleRate = 44100) {
+    constructor (bufferSize = 1024, sampleRate = 8000) {
         this.noteA = 440;
         this.sampleRate = sampleRate;
         this.bufferSize = bufferSize;
@@ -67,8 +67,16 @@ export default class Tuner {
         Recording.addRecordingEventListener(data => {
             const f = this._getFrequency(data);
             const MIDI = this._getMIDI(f);
-            console.log('MIDI: ', this._getMIDI(f), 'Note_: ', this._getNote(MIDI), 'Cents_: ', this._getCents(f, MIDI));
-            //EventEmitter.emit("foo", data);
+            if (f) {
+              const note = {
+                f: f,
+                midi: MIDI,
+                cents: this._getCents(f, MIDI),
+                note: this._getNote(MIDI)
+              };
+              EventEmitter.emit("noteDetected", note);
+            }
+
             //this.dispatchEvent('sss__')
             // console.log('PF: ', this._getFrequency(data));
             // console.log('F: ');
@@ -77,15 +85,16 @@ export default class Tuner {
         return Recording;
     }
 
-    static start () {
+    start () {
         return Recording.start();
     }
 
-    static stop () {
+    stop () {
         return Recording.stop();
     }
 
 }
 
+export default new Tuner();
 
 

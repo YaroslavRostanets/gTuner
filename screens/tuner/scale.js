@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Dimensions} from 'react-native';
+import {Platform, StyleSheet, Text, View, Dimensions, Animated} from 'react-native';
 import Canvas from 'react-native-canvas';
+import EventEmitter from "react-native-eventemitter";
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 const screenHeight = Math.round(Dimensions.get('window').height);
@@ -24,7 +25,15 @@ const getDecCords  = (r, angle) => {
 };
 
 export default class Scale extends Component {
+
+    constructor (props) {
+        super(props);
+
+        this.cents = new Animated.Value(0);
+    }
+
     handleCanvas = (canvas) => {
+        if (!canvas) return false;
 
         const ctx = canvas.getContext('2d');
         canvas.width  = screenWidth;
@@ -69,7 +78,7 @@ export default class Scale extends Component {
         }
 
         ctx.beginPath();
-        ctx.arc(screenWidth / 2,screenHeight / 3 - 20, 6, 0, 2*Math.PI, false);
+        ctx.arc(screenWidth / 2,screenHeight / 3 - 20, 8, 0, 2*Math.PI, false);
         ctx.fillStyle = 'rgba(245, 62, 60, 0.20)';
         ctx.strokeStyle = 'rgba(245, 62, 60, 0.20)';
         ctx.fill();
@@ -84,7 +93,24 @@ export default class Scale extends Component {
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(screenWidth / 2,screenHeight / 3 - 20, 3, 0, 2*Math.PI, false);
+        ctx.arc(screenWidth / 2,screenHeight / 3 - 20, 4, 0, 2*Math.PI, false);
+        ctx.fillStyle = '#F53E3C';
+        ctx.strokeStyle = '#F53E3C';
+        ctx.fill();
+        ctx.stroke();
+    };
+
+    handleArrow = (canvas) => {
+        if (!canvas) return false;
+
+        const ctx = canvas.getContext('2d');
+        canvas.width  = 3;
+        canvas.height = (screenHeight / 3 - 20) * 2 ;
+        ctx.beginPath();
+        ctx.moveTo(2, screenHeight / 3 - screenHeight / 4 + 4);
+        ctx.lineTo(0, screenHeight / 3 + 4);
+        ctx.lineTo(3, screenHeight / 3 + 4);
+        ctx.lineTo(2, screenHeight / 3 - screenHeight / 4 + 4);
         ctx.fillStyle = '#F53E3C';
         ctx.strokeStyle = '#F53E3C';
         ctx.fill();
@@ -97,8 +123,29 @@ export default class Scale extends Component {
                 <Canvas
                     style={styles.canvas}
                     ref={this.handleCanvas}/>
+                <Animated.View style={{...styles.arrow,
+                    transform: [{ rotate: this.cents.interpolate({
+                            inputRange: [-50, 50],
+                            outputRange: ['-100deg', '100deg']
+                        })}]}}>
+                    <Canvas
+                      ref={this.handleArrow}
+                    />
+                </Animated.View>
             </View>
         );
+    }
+
+    setNote(note) {
+        this.cents.setValue(note.cents);
+    }
+
+    componentDidMount() {
+        EventEmitter.on("noteDetected", this.setNote.bind(this));
+    }
+
+    componentWillUnmount() {
+        EventEmitter.removeListener("noteDetected", this.setNote);
     }
 
 
@@ -107,14 +154,25 @@ export default class Scale extends Component {
 const styles = StyleSheet.create({
     canvas: {
         //borderWidth: 1,
-        //borderColor: 'red',
-        //borderStyle: 'solid',
+        // borderColor: 'red',
+        // borderStyle: 'solid',
     },
     wrap: {
         height: 0.37 * screenHeight,
         overflow: 'hidden',
-        //borderWidth: 1,
-        //borderStyle: 'solid',
-
+        position: 'relative',
+        // borderWidth: 1,
+        // borderStyle: 'solid',
+    },
+    arrow: {
+        position: 'absolute',
+        top: 0/*screenHeight / 3 - screenHeight / 4 + 4*/,
+        left: screenWidth / 2,
+        marginLeft: -1,
+        transform: [{ rotate: '20deg'}],
+        width: 3,
+        height: (screenHeight / 3 - 20) * 2
+        // borderWidth: 1,
+        // borderStyle: 'solid',
     }
 });

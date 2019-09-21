@@ -27,12 +27,25 @@ const instructions = Platform.select({
 });
 
 type Props = {};
+
 export default class App extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: TUNER
     };
+  }
+
+  toggleScreen(screen) {
+    this.setState({
+      activeTab: screen
+    }, () => {
+      if (this.state.activeTab === TUNER) {
+        Tuner.init().start();
+      } else {
+        Tuner.stop();
+      }
+    });
   }
 
   render() {
@@ -43,23 +56,16 @@ export default class App extends Component<Props> {
             ? <TunerScreen style={styles.scale}/>
             : <Metronom/>}
         </View>
-        <Bar/>
+        <Bar toggleScreen={this.toggleScreen.bind(this)}/>
       </View>
     );
   }
 
   componentDidMount() {
-    console.log('test__');
     requestMicPermission()
       .then(data => console.log(data))
       .catch(err => console.log(err));
-
-    console.log('tuner2: ', Tuner);
-    const tuner = new Tuner();
-    //tuner.init().start();
-    // EventEmitter.on("foo", (value)=>{
-    //   console.log("foo", value);
-    // });
+    //Tuner.init().start();
   }
 }
 

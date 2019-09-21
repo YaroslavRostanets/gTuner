@@ -6,10 +6,22 @@ import LinearGradient from 'react-native-linear-gradient';
 import Scale from './scale';
 
 import Icon from "../../assets/icons/frequency.svg";
+import PitchFinder from "pitchfinder";
 
 export default class Tuner extends Component {
 
+    constructor (props) {
+        super(props);
+        this.state = {
+            note: 'A',
+            f: '160'
+        }
+    }
+
+
     render() {
+        const {note, f} = this.state;
+
         return (
             <LinearGradient
               colors={['#CACACA', '#FEFEFE' ,'#FFFFFF']}
@@ -17,20 +29,29 @@ export default class Tuner extends Component {
                 <Text style={styles.appName}>Y-TUNER</Text>
                 <Scale/>
                 <View>
-                    <Text style={styles.note}>G</Text>
+                    <Text style={styles.note}>{note}</Text>
                     <Icon style={styles.ico} width={30} height={30} />
-                    <Text style={styles.frequency}>160 Hz</Text>
+                    <Text style={styles.frequency}>{f} Hz</Text>
                 </View>
 
             </LinearGradient>
         );
     }
 
-    componentDidMount() {
-
+    setNote(note) {
+        this.setState({
+           note: note.note,
+           f: Math.round(note.f)
+        });
     }
 
+    componentDidMount() {
+        EventEmitter.on("noteDetected", this.setNote.bind(this));
+    }
 
+    componentWillUnmount() {
+        EventEmitter.removeListener("noteDetected", this.setNote);
+    }
 }
 
 const styles = StyleSheet.create({
