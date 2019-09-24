@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="screen" style="height: 736px; width: 414px; border: 1px solid gray;">
+    <div class="scale">
+        <div class="app-name">
+            Y-Tuner
+        </div>
+        <canvas id="canvas" width="414" height="570"></canvas>
+    </div>
+    <div class="bar">
+
+    </div>
+</div>
+</body>
+<script>
+
+  var canvas=document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+
+  var screenWidth = canvas.width;
+
+  var trapTop = canvas.width / 4;
+  var trapBot = canvas.width - canvas.width / 4;
+
+  ctx.moveTo( (canvas.width - trapTop) / 2, 0);
+  ctx.lineTo((canvas.width - trapTop) / 2 + trapTop, 0);
+
+  ctx.stroke();
+
+  
+</script>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #313047;
+    }
+    .scale {
+        height: 85%;
+        background: linear-gradient(to top, #FEFEFE, #E7E7E7);
+    }
+    .bar {
+        background: #2B293B;
+        height: 15%;
+    }
+    .app-name {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        padding-top: 45px;
+    }
+</style>
+</html>
