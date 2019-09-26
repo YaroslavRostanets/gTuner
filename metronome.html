@@ -24,16 +24,36 @@
   var ctx = canvas.getContext('2d');
 
   var screenWidth = canvas.width;
+  var screenHeight = canvas.height;
+  var metHeight = canvas.height * 0.75;
 
-  var trapTop = canvas.width / 4;
-  var trapBot = canvas.width - canvas.width / 4;
+  var trapTop = screenWidth / 4.5;
+  var trapBot = screenWidth - screenWidth / 4;
 
-  ctx.moveTo( (canvas.width - trapTop) / 2, 0);
-  ctx.lineTo((canvas.width - trapTop) / 2 + trapTop, 0);
+  ctx.beginPath();
+  ctx.moveTo( (screenWidth - trapTop) / 2, 0);
+  ctx.lineTo((screenWidth - trapTop) / 2 + trapTop, 0);
+  ctx.lineTo( (screenWidth - trapBot) / 2 + trapBot, metHeight);
+  ctx.lineTo( (screenWidth - trapBot) / 2, metHeight);
+  ctx.lineTo( (screenWidth - trapTop) / 2, 0);
 
+  ctx.fillStyle = "#34495E";
+  ctx.strokeStyle = "#34495E";
+  ctx.fill();
   ctx.stroke();
 
-  
+  ctx.beginPath();
+  ctx.moveTo( (screenWidth - trapTop) / 2 + 10, 10);
+  ctx.lineTo((screenWidth - trapTop) / 2 + trapTop - 10, 10);
+  ctx.lineTo( (screenWidth - trapBot) / 2 + trapBot - 65, metHeight * 0.6);
+  ctx.lineTo( (screenWidth - trapBot) / 2 + 65, metHeight * 0.6);
+  ctx.lineTo( (screenWidth - trapTop) / 2 + 10, 10);
+
+  ctx.fillStyle = "#21C2F8";
+  ctx.strokeStyle = "#21C2F8";
+  ctx.fill();
+  ctx.stroke();
+
 </script>
 <style>
     body {
