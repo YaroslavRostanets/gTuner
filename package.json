@@ -15,6 +15,7 @@
     "react-native-eventemitter": "0.0.1",
     "react-native-icons": "^0.7.1",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-material-ripple": "^0.9.1",
     "react-native-microphone-stream": "git://github.com/chadsmith/react-native-microphone-stream.git",
     "react-native-recording": "0.4.1",
     "react-native-svg": "^9.9.4",

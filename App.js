@@ -32,7 +32,7 @@ export default class App extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: TUNER
+      activeTab: METRONOM
     };
   }
 

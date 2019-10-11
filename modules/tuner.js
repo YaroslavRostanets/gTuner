@@ -19,7 +19,7 @@ class Tuner {
         "B"
     ];
 
-    constructor (bufferSize = 1024, sampleRate = 8000) {
+    constructor (bufferSize = 512, sampleRate = 8000) {
         this.noteA = 440;
         this.sampleRate = sampleRate;
         this.bufferSize = bufferSize;

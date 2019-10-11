@@ -12,6 +12,7 @@ export default class Tuner extends Component {
 
     constructor (props) {
         super(props);
+        this.last = [];
         this.state = {
             note: 'A',
             f: '160'
@@ -38,10 +39,21 @@ export default class Tuner extends Component {
         );
     }
 
+    getAverageF(f) {
+        if (this.last.length > 5) {
+            this.last.shift(f);
+        }
+        this.last.push(f);
+
+        return this.last.reduce((sum, el) => sum + el) / this.last.length;
+    }
+
     setNote(note) {
+        console.log('NOTE_: ', note.f);
+
         this.setState({
            note: note.note,
-           f: Math.round(note.f)
+           f: Math.round(this.getAverageF(note.f))
         });
     }
 

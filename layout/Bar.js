@@ -34,7 +34,7 @@ export default class Bar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: TUNER
+      activeTab: METRONOM
     };
   }
 
